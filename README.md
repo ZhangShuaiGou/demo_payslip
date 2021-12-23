@@ -156,7 +156,9 @@ To run this API, we recommend using  [***Postman***](https://www.postman.com/) t
 
 Note that this API is developed by [***Spring-boot 2.6.1***](https://spring.io/projects/spring-boot) and ***Java 11***
 
-##### Method one
+This section we provided three methods, however, they are only different in how to access the API. The part how to use ***Postman*** is same. To make it easy to read, we only explain how to use ***Postman*** in the first method.
+
+### Method one
 
 This method refers to clone this repo and build it on your local machine. 
 
@@ -180,13 +182,15 @@ Below is an example of how manipulate Postman.
 
 ![image-20211223202859606](/src/main/resources/image-20211223202859606.png)
 
-##### Method two
+### Method two
 
 An image of this API is built and push to the Docker hub. Hit this [link](https://hub.docker.com/r/zhangshuaigou/demo_payslip) to see more detail. 
 
-Once you pull this image to your local machine, you can run it in your docker. Please note the you need to check your docker IP and use it in Postman.
+Once you pull this image to your local machine, you can run it in your docker. 
 
-##### Method three (Recommended)
+Note, you need to check your docker IP and use it to access the API in ***Postman***.
+
+### Method three (Recommended)
 
 We have already deployed this API on AWS ECS service. You can directly put below link to Postman URL bar to access the service.
 
