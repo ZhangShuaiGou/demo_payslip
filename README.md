@@ -51,11 +51,11 @@ The input format is adopted in ***JSON*** :
 ```json
 [
   {
-  	"firstName":"David",						//employee's first name
-   	"lastName":"Rudd",							//employee's last name
-   	"annualSalary":60050,						//employee's annual salary
-    "payPeriod":"01 March – 31 March",			//employee's payment period
-  	"superRate":0.09							//employee's super rate
+  	"firstName":"David",  
+   	"lastName":"Rudd",	
+   	"annualSalary":60050, 
+    "payPeriod":"01 March – 31 March",
+  	"superRate":0.09 
   },
   {
    	"firstName":"Ryan",
@@ -72,19 +72,19 @@ The output format is also adopted in ***JSON*** :
 ```JSON
 [
     {
-        "employee": {							//employss's basic information, which was input
+        "employee": {							          
             "firstName": "David",
             "lastName": "Rudd",
             "annualSalary": 60050,
             "superRate": 0.09,
             "paymentMonth": 1
         },
-        "fromDate": "01 March",					//payroll's start date
-        "toDate": "31 March",					//payroll's end date
-        "grossIncome": 5004,					//employss's gross income
-        "incomeTax": 922,						//employss's income tax
-        "super": 450,							//employss's superannuation
-        "netIncome": 4082						//employss's net income
+        "fromDate": "01 March",					   
+        "toDate": "31 March",				      	
+        "grossIncome": 5004,		      			
+        "incomeTax": 922,					         	
+        "super": 450,						          	
+        "netIncome": 4082					        	
     },
     {
         "employee": {
@@ -117,11 +117,11 @@ Payroll calculation is complex in real world. Thus, in this API, here are some a
 ```json
  [ 
   {
-  	"firstName":"David",						//employee's first name
-   	"lastName":"Rudd",							//employee's last name
-   	"annualSalary":60050,						//employee's annual salary
-    "payPeriod":"01 March – 31 March",			//employee's payment period
-  	"superRate":0.09							//employee's super rate
+  	"firstName":"David",					
+   	"lastName":"Rudd",					
+   	"annualSalary":60050,					
+    "payPeriod":"01 March – 31 March",			
+  	"superRate":0.09							
   }
  ]
 ```
@@ -178,7 +178,7 @@ This method refers to clone this repo and build it on your local machine.
 
 Below is an example of how manipulate Postman.
 
-![image-20211223202859606](C:\Users\CAS-Shen\AppData\Roaming\Typora\typora-user-images\image-20211223202859606.png)
+![image-20211223202859606](/src/main/resources/image-20211223202859606.png)
 
 ##### Method two
 
