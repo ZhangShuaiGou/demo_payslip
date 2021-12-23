@@ -162,21 +162,21 @@ This section we provided three methods, however, they are only different in how 
 
 This method refers to clone this repo and build it on your local machine. 
 
-​	**Step 1**: Clone this repo to your local machine
+​	**Step 1**: Clone this repo to your local machine.
 
-​	**Step 2**: Build this repo with your favourite IDEA (we recommend and used [IntelliJ IDEA](https://www.jetbrains.com/idea/))
+​	**Step 2**: Build this repo with your favourite IDEA (we recommend and used [IntelliJ IDEA](https://www.jetbrains.com/idea/)).
 
-​	**Step 3**: Open your Postman
+​	**Step 3**: Open your Postman.
 
-​	**Step 4**: Paste this link (localhost:8080/employee) to the URL bar 
+​	**Step 4**: Paste this link (localhost:8080/employee) to the URL bar.
 
-​	**Step 5**: Select `POST` as request method  
+​	**Step 5**: Select `POST` as request method.  
 
-​	**Step 6**: Select `raw` data with `JSON`  format under `Body` column
+​	**Step 6**: Select `raw` data with `JSON`  format under `Body` column. 
 
-​	**Step 7**: Paste request body and  click send
+​	**Step 7**: Paste or type request body and  click send. You can put multiple employees or single employee into one request body.
 
-​	**Step 8**: Check the response body in below panel
+​	**Step 8**: Check the response body in below panel.
 
 Below is an example of how manipulate Postman.
 
