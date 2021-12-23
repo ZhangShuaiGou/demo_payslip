@@ -46,7 +46,7 @@ For example, the payment in March for an employee with an annual salary of $60,0
 
 
 
-The input format is adopted in ***JSON*** :
+The input format is adopted in ***JSON*** (this is also an example request body test case):
 
 ```json
 [
@@ -67,7 +67,7 @@ The input format is adopted in ***JSON*** :
 ]
 ```
 
-The output format is also adopted in ***JSON*** :
+The output format is also adopted in ***JSON*** (this is also the response body of the above request):
 
 ```JSON
 [
