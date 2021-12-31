@@ -46,16 +46,16 @@ For example, the payment in March for an employee with an annual salary of $60,0
 
 
 
-The input format is adopted in ***JSON*** :
+The input format is adopted in ***JSON*** (this is also an example request body test case):
 
 ```json
 [
   {
-  	"firstName":"David",						//employee's first name
-   	"lastName":"Rudd",							//employee's last name
-   	"annualSalary":60050,						//employee's annual salary
-    "payPeriod":"01 March – 31 March",			//employee's payment period
-  	"superRate":0.09							//employee's super rate
+  	"firstName":"David",  
+   	"lastName":"Rudd",	
+   	"annualSalary":60050, 
+    "payPeriod":"01 March – 31 March",
+  	"superRate":0.09 
   },
   {
    	"firstName":"Ryan",
@@ -67,24 +67,24 @@ The input format is adopted in ***JSON*** :
 ]
 ```
 
-The output format is also adopted in ***JSON*** :
+The output format is also adopted in ***JSON*** (this is also the response body of the above request):
 
 ```JSON
 [
     {
-        "employee": {							//employss's basic information, which was input
+        "employee": {							          
             "firstName": "David",
             "lastName": "Rudd",
             "annualSalary": 60050,
             "superRate": 0.09,
             "paymentMonth": 1
         },
-        "fromDate": "01 March",					//payroll's start date
-        "toDate": "31 March",					//payroll's end date
-        "grossIncome": 5004,					//employss's gross income
-        "incomeTax": 922,						//employss's income tax
-        "super": 450,							//employss's superannuation
-        "netIncome": 4082						//employss's net income
+        "fromDate": "01 March",					   
+        "toDate": "31 March",				      	
+        "grossIncome": 5004,		      			
+        "incomeTax": 922,					         	
+        "super": 450,						          	
+        "netIncome": 4082					        	
     },
     {
         "employee": {
@@ -117,11 +117,11 @@ Payroll calculation is complex in real world. Thus, in this API, here are some a
 ```json
  [ 
   {
-  	"firstName":"David",						//employee's first name
-   	"lastName":"Rudd",							//employee's last name
-   	"annualSalary":60050,						//employee's annual salary
-    "payPeriod":"01 March – 31 March",			//employee's payment period
-  	"superRate":0.09							//employee's super rate
+  	"firstName":"David",					
+   	"lastName":"Rudd",					
+   	"annualSalary":60050,					
+    "payPeriod":"01 March – 31 March",			
+  	"superRate":0.09							
   }
  ]
 ```
@@ -156,41 +156,47 @@ To run this API, we recommend using  [***Postman***](https://www.postman.com/) t
 
 Note that this API is developed by [***Spring-boot 2.6.1***](https://spring.io/projects/spring-boot) and ***Java 11***
 
-##### Method one
+This section we provided three methods, however, they are only different in how to access the API. The part how to use ***Postman*** is same. To make it easy to read, we only explain how to use ***Postman*** in the first method.
+
+### Method one
 
 This method refers to clone this repo and build it on your local machine. 
 
-​	**Step 1**: Clone this repo to your local machine
+​	**Step 1**: Clone this repo to your local machine.
 
-​	**Step 2**: Build this repo with your favourite IDEA (we recommend and used [IntelliJ IDEA](https://www.jetbrains.com/idea/))
+​	**Step 2**: Build this repo with your favourite IDEA (we recommend and used [IntelliJ IDEA](https://www.jetbrains.com/idea/)).
 
-​	**Step 3**: Open your Postman
+​	**Step 3**: Open your Postman.
 
-​	**Step 4**: Paste this link (localhost:8080/employee) to the URL bar 
+​	**Step 4**: Paste this link (localhost:8080/employee) to the URL bar.
 
-​	**Step 5**: Select `POST` as request method  
+​	**Step 5**: Select `POST` as request method.  
 
-​	**Step 6**: Select `raw` data with `JSON`  format under `Body` column
+​	**Step 6**: Select `raw` data with `JSON`  format under `Body` column. 
 
-​	**Step 7**: Paste request body and  click send
+​	**Step 7**: Paste or type request body and  click send. You can put multiple employees or single employee into one request body.
 
-​	**Step 8**: Check the response body in below panel
+​	**Step 8**: Check the response body in below panel.
 
 Below is an example of how manipulate Postman.
 
-![image-20211223202859606](C:\Users\CAS-Shen\AppData\Roaming\Typora\typora-user-images\image-20211223202859606.png)
+![image-20211223202859606](/src/main/resources/image-20211223202859606.png)
 
-##### Method two
+### Method two
 
 An image of this API is built and push to the Docker hub. Hit this [link](https://hub.docker.com/r/zhangshuaigou/demo_payslip) to see more detail. 
 
-Once you pull this image to your local machine, you can run it in your docker. Please note the you need to check your docker IP and use it in Postman.
+Once you pull this image to your local machine, you can run it in your docker. 
 
-##### Method three (Recommended)
+Note, you need to check your docker IP and use it to access the API in ***Postman***.
+
+### Method three (Recommended)
 
 We have already deployed this API on AWS ECS service. You can directly put below link to Postman URL bar to access the service.
 
 `13.239.138.72:8080/employee`
+
+
 
 
 
