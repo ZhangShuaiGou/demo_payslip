@@ -1,14 +1,16 @@
 package com.example.payslip.domain;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class Payroll {
     private Employee employee;
     private String fromDate;
     private String toDate;
+    private Taxtable taxtable;
 
-    public Payroll(Employee employee){
+    public Payroll(Employee employee, Taxtable taxtable){
         setEmployee(employee);
+        setTaxtable(taxtable);
     }
 
     public Employee getEmployee() {
@@ -17,6 +19,14 @@ public class Payroll {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    protected Taxtable getTaxtable() {
+        return taxtable;
+    }
+
+    protected void setTaxtable(Taxtable taxtable) {
+        this.taxtable = taxtable;
     }
 
     public String getFromDate() {
@@ -36,31 +46,28 @@ public class Payroll {
         return (int)(diff>=0.5 ? gross+1 : gross);
     }
 
-    public int getIncomeTax(){
+    public int getIncomeTax() {
         int annualSalary = employee.getAnnualSalary();
-        if(annualSalary<18200){
+        List<Tablerow> tablebody = taxtable.getTableBody();
+        int resTax = 0;
+        if (annualSalary <= tablebody.get(0).getMaxTaxThreshold()) {
             return 0;
         }
-        else if(annualSalary<37000){
-            double tax = ((annualSalary-18200)*0.19) / 12;
-            double diff = tax - (int)tax;
-            return (int)(diff>=0.5 ? tax+1 : tax);
+        else {
+            for (int i = 1; i < tablebody.size(); i++) {
+                int minT = tablebody.get(i).getMinTaxThreshold();
+                int maxT = tablebody.get(i).getMaxTaxThreshold();
+                int base = tablebody.get(i).getTaxBase();
+                float rate = tablebody.get(i).getTaxRate();
+                if (annualSalary >= minT && annualSalary <= maxT) {
+                    double tax = (base + (annualSalary - minT + 1) * rate) / 12;
+                    double diff = tax - (int) tax;
+                    resTax = (int) (diff >= 0.5 ? tax + 1 : tax);
+                    break;
+                }
+            }
         }
-        else if(annualSalary < 87000){
-            double tax = (3572 + (annualSalary-37000)*0.325) / 12;
-            double diff = tax - (int)tax;
-            return (int)(diff>=0.5 ? tax+1 : tax);
-        }
-        else if(annualSalary < 180000){
-            double tax = (19822 + (annualSalary-87000)*0.37) / 12;
-            double diff = tax - (int)tax;
-            return (int)(diff>=0.5 ? tax+1 : tax);
-        }
-        else{
-            double tax = (54232 + (annualSalary-180000)*0.45) / 12;
-            double diff = tax - (int)tax;
-            return (int)(diff>=0.5 ? tax+1 : tax);
-        }
+        return resTax;
     }
 
     public int getSuper(){
@@ -71,18 +78,5 @@ public class Payroll {
 
     public int getNetIncome(){
         return getGrossIncome() - getIncomeTax();
-    }
-
-    @Override
-    public  String toString(){
-        return "Employee: " + '\n'
-                + employee.toString() + '\n'
-                + "fromDate: " + getFromDate() + '\n'
-                + "toDate: " + getToDate() + '\n'
-                + "grossIncome: " + getGrossIncome() + '\n'
-                + "incomeTax: " + getIncomeTax() + '\n'
-                + "superannuation: " + getSuper() + '\n'
-                + "netIncome: " + getNetIncome() + '\n'
-                ;
     }
 }
