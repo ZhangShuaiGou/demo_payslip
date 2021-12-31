@@ -44,6 +44,42 @@ For example, the payment in March for an employee with an annual salary of $60,0
 
 * super = 5,004 x 9% = 450.36 (round down) = 450 
 
+We make the tax table flexible. therefore, you need to input a tax table before you use it. (POST {api_address}/taxtable).
+The tax table input format is: 
+```json
+[
+    {
+        "minTaxThreshold":0,
+        "maxTaxThreshold":18200,
+        "taxBase":0,
+        "taxRate":0.0            
+    },
+    {
+        "minTaxThreshold":18201,
+        "maxTaxThreshold":37000,
+        "taxBase":0,
+        "taxRate":0.19            
+    },
+    {
+        "minTaxThreshold":37001,
+        "maxTaxThreshold":87000,
+        "taxBase":3572,
+        "taxRate":0.325            
+    },
+    {
+        "minTaxThreshold":87001,
+        "maxTaxThreshold":180000,
+        "taxBase":19822,
+        "taxRate":0.37            
+    },
+    {
+        "minTaxThreshold":180001,
+        "maxTaxThreshold":2147483647,
+        "taxBase":54232,
+        "taxRate":0.45            
+    }
+]
+```
 
 
 The input format is adopted in ***JSON*** (this is also an example request body test case):
