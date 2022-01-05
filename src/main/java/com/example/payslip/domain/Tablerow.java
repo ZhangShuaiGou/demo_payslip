@@ -15,7 +15,7 @@ public class Tablerow {
     private int taxBase;
     private float taxRate;
 
-    public Long getId() {
+    protected Long getId() {
         return id;
     }
 
